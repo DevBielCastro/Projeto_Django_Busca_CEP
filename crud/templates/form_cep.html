@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Formulário de CEP{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Formulário de CEP</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="{% url 'lista_cep' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

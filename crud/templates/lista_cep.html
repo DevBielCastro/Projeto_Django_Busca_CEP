@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de CEPs{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Lista de CEPs</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CEP</th>
+                    <th>Cidade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cep in object_list %}
+                <tr>
+                    <td>{{ cep.cep }}</td>
+                    <td>{{ cep.cidade }}</td>
+                    <td>
+                        <a href="{% url 'editar_cep' cep.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{% url 'deletar_cep' cep.pk %}" class="btn btn-sm btn-danger">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'criar_cep' %}" class="btn btn-success">Adicionar CEP</a>
+    </div>
+</div>
+{% endblock %}

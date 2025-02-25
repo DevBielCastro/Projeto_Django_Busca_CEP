@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Deletar CEP{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Deletar CEP</h2>
+    </div>
+    <div class="card-body">
+        <p>Tem certeza que deseja deletar o CEP "{{ object.cep }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <a href="{% url 'lista_cep' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
